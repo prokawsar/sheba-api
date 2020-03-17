@@ -1,0 +1,252 @@
+#!/usr/bin/env php
+<?php
+
+ob_implicit_flush(true);
+
+require_once(_fixPath(__DIR__ . '/../test/_bootstrap.php'));
+require_once(_fixPath(__DIR__ . '/../test/_config.php'));
+require_once(_fixPath(__DIR__ . '/../test/_modelsList.php'));
+require_once(_fixPath(__DIR__ . '/../test/_viewsList.php'));
+
+array_shift($argv);
+
+$func = array_shift($argv);
+
+if(function_exists($func) && !_startsWith($func, '_')){
+    call_user_func_array($func, $argv);
+}else{
+    _output('Error: Invalid command');
+}
+
+function help(){
+    _output("\n");
+    _output("To generate a test file:", false);
+    _output("> composer test generate testFileName");
+    _output("\n");
+    _output("To generate a test file in a test group:", false);
+    _output("> composer test generate groupName:testFileName");
+    _output("\n");
+    _output("To run all tests:", false);
+    _output("> composer test run");
+    _output("\n");
+    _output("To run a single test group:", false);
+    _output("> composer test run groupName");
+    _output("\n");
+    _output("To run a single test file:", false);
+    _output("> composer test run groupName:testFileName");
+    _output("\n");
+    _output("To see a list of all available groups:", false);
+    _output("> composer test listGroups");
+    _output("\n");
+}
+
+
+function generate($className){
+    $dir = false;
+    if(strpos($className, ':') !== false){
+        list($dir, $className) = explode(':', $className);
+        $dir = ucfirst(strtolower($dir));
+        $f = _fixPath(__DIR__ . '/../test/tests/'.$dir);
+        if(!file_exists($f) || !is_dir($f)){
+            mkdir($f);
+        }
+    }else{
+        $f = _fixPath(__DIR__ . '/../test/Tests');
+    }
+
+    $className = ucfirst(strtolower($className));
+    if(!_endsWith($className, 'test')){
+        $className = $className.'Test';
+    }else{
+        $className = substr($className, 0, -4) . 'Test';
+    }
+    $f .= _fixPath('/'.$className.'.php');
+
+    if(file_exists($f)){
+        _output('Failed to generate '.($dir ? $dir."/" : '').$className. ', file already exists', true);
+        return;
+    }
+
+    $h = fopen($f , 'w');
+    if(fwrite($h, "<?php
+namespace Tests".($dir ? "\\".$dir : '').";
+
+class $className extends \Tests\TestBase{
+
+    /**
+     * List of tests
+     * ================
+     * [ ] test description 1
+     * [ ] test description 2
+     *
+     */
+
+    function before(){
+        //runs before running ANY test method
+    }
+
+    function after(){
+        //runs after running ALL test methods
+    }
+
+    function beforeEach(){
+        //runs before EACH test method
+    }
+
+    function afterEach(){
+        //runs after EACH test method
+    }
+
+}")){
+        _output("Generated " .$className, false);
+    }else{
+        _output('Failed to generate '.$className, true);
+    }
+
+    fclose($h);
+}
+
+function listGroups(){
+    _output("\n");
+    _output("List of available test groups:", false);
+    $testGroupFolders = glob(_fixPath(__DIR__ . '/../test/Tests/*'), GLOB_ONLYDIR);
+    foreach ($testGroupFolders as $dir) {
+        $ex = explode(DIRECTORY_SEPARATOR, $dir);
+        $namespace = end($ex);
+        _output(" - " . $namespace);
+    }
+}
+
+function run($groupName = null){
+    $passed = 0;
+    $failed = 0;
+    $exceptions = 0;
+    $startTime = microtime(true);
+    $fileName = null;
+
+    if(_contains($groupName, ':')){
+      $_g = explode(":", $groupName);
+      $groupName = $_g[0];
+      if(isset($_g[1])){
+        $fileName = $_g[1];
+      }
+    }
+
+    $baseGroupTests = glob(_fixPath(__DIR__ . '/../test/Tests/*Test.php'));
+    $testGroupFolders = glob(_fixPath(__DIR__ . '/../test/Tests/*'), GLOB_ONLYDIR);
+
+    $toRun = [
+        'BASE' => ['files' => $baseGroupTests, 'namespace' => null, 'name' => 'BASE']
+    ];
+
+    foreach ($testGroupFolders as $dir) {
+        $ex = explode(DIRECTORY_SEPARATOR, $dir);
+        $namespace = end($ex);
+        $toRun[$namespace] = [
+            'files' => glob(_fixPath(__DIR__ . '/../test/Tests/'.$namespace.'/*Test.php')),
+            'namespace' => $namespace,
+            'name' => $namespace
+        ];
+    }
+
+    if($groupName){
+        if(isset($toRun[$groupName])){
+            $ret = _runFiles($toRun[$groupName], $fileName);
+            $passed += $ret[0];
+            $failed += $ret[1];
+            $exceptions += $ret[2];
+        }else{
+            _output("ERROR: Test group " . $groupName . " does not exist", true);
+            return;
+        }
+
+    }else{
+        foreach($toRun as $run){
+            $ret = _runFiles($run);
+            $passed += $ret[0];
+            $failed += $ret[1];
+            $exceptions += $ret[2];
+        }
+    }
+
+    $endTime = microtime(true);
+
+
+    _output("\n\n");
+    _output("=====================================================");
+    _output(
+        ($passed + $failed) . ' Assertions, ' .
+        "\033[1;97;42m " . $passed . ' Passed' . " \e[0m, " .
+        ($failed ? "\033[1;97;41m " . $failed . ' Failed' . " \e[0m, " : $failed . ' Failed, ').
+        ($exceptions ? "\033[1;97;41m " . $exceptions . ' Exceptions' . " \e[0m" : $exceptions . ' Exceptions')
+    );
+
+    $_diff = \DateTime::createFromFormat('U.u', number_format(($endTime - $startTime), 6, '.', ''));
+
+    _output("Total time taken: ". $_diff->format("H:i:s.u"));
+    _output("=====================================================");
+}
+
+function _runFiles($obj, $fileName = null){
+
+    $passed = 0;
+    $failed = 0;
+    $exceptions = 0;
+
+    _output("");
+    foreach ($obj['files'] as $tf) {
+        $f = explode(DIRECTORY_SEPARATOR, $tf);
+        $f = array_pop($f);
+        $f = str_replace('.php', '', $f);
+        if(($fileName && $f == $fileName) || !$fileName){
+          _output("..................... ".$obj['namespace'] . '\\' .$f." ...............");
+          $class = "Tests\\".($obj['namespace'] ? $obj['namespace']."\\" : "").$f;
+          $class = new $class;
+          $class->run();
+
+          $passed += $class->passed;
+          $failed += $class->failed;
+          $exceptions += $class->exceptions;
+        }
+    }
+
+    return [$passed, $failed, $exceptions];
+
+}
+
+//Helpers
+
+function _fixPath($path){
+    $ds = DIRECTORY_SEPARATOR;
+    return str_replace('/', $ds, $path);
+}
+
+function _startsWith($haystack, $needle){
+    $length = strlen($needle);
+    return (substr($haystack, 0, $length) === $needle);
+}
+
+function _endsWith($haystack, $needle){
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+}
+
+function _contains($haystack, $needle){
+    return strpos($haystack, $needle) !== false;
+}
+
+function _output($msg, $err = null){
+    if($err == true){
+        echo "\033[1;97;41m " .$msg." \e[0m" . "\n";
+    }elseif($err === false){
+        echo "\033[1;97;42m " .$msg." \e[0m" . "\n";
+    }else{
+        echo $msg . "\n";
+    }
+    ob_flush();
+    ob_end_flush();
+}

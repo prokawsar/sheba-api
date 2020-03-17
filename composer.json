@@ -1,0 +1,29 @@
+{
+    "name": "sheba-homoeo-api",
+    "scripts":{
+        "mig": "src\\vendor\\bin\\phpmig",
+        "test": "php bin/test",
+        "generateModels": "php bin/generateModels"
+    },
+    "require": {
+        "bcosca/fatfree-core": "3.5.1",
+        "ikkez/f3-cortex": "1.4.1",
+        "davedevelopment/phpmig": "^1.2",
+        "pimple/pimple": "~3.0",
+        "aws/aws-sdk-php": "^3.18",
+        "ekhaled/f3-cortex-model-generator": "1.6",
+        "phpmailer/phpmailer": "^5.2",
+        "knplabs/knp-snappy": "^0.4.3",
+        "intervention/image": "^2.4",
+        "twilio/sdk": "^5.27"
+    },
+    "config": {
+        "vendor-dir": "src/vendor"
+    },
+    "authors": [
+        {
+            "name": "prokawsar",
+            "email": "prokawsar@gmail.com"
+        }
+    ]
+}
