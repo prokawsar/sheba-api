@@ -38,6 +38,9 @@ class Patients extends \Models\Base
         ],
         'case_histories' => [
             'has-many' => ['\Models\Base\Case_histories', 'patient']
+        ],
+        'treatments' => [
+            'has-many' => ['\Models\Base\Treatments', 'patient']
         ]
     ],
     $table = 'patients';

@@ -19,6 +19,9 @@ class Remedies extends \Models\Base
         'modified' => [
             'type' => 'DATETIME',
             'nullable' => true
+        ],
+        'treatments' => [
+            'has-many' => ['\Models\Base\Treatments', 'remedy']
         ]
     ],
     $table = 'remedies';

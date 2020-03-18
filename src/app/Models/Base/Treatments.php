@@ -1,18 +1,20 @@
 <?php
 namespace Models\Base;
 
-class Case_histories extends \Models\Base
+class Treatments extends \Models\Base
 {
     protected $fieldConf = [
+        'case_history' => [
+            'belongs-to-one' => '\Models\Base\Case_histories'
+        ],
         'patient' => [
             'belongs-to-one' => '\Models\Base\Patients'
         ],
-        'mind' => [
-            'type' => 'TEXT',
-            'nullable' => true
+        'remedy' => [
+            'belongs-to-one' => '\Models\Base\Remedies'
         ],
-        'deleted' => [
-            'type' => 'INT1',
+        'notes' => [
+            'type' => 'VARCHAR256',
             'nullable' => true
         ],
         'created' => [
@@ -22,11 +24,8 @@ class Case_histories extends \Models\Base
         'modified' => [
             'type' => 'DATETIME',
             'nullable' => true
-        ],
-        'treatments' => [
-            'has-many' => ['\Models\Base\Treatments', 'case_history']
         ]
     ],
-    $table = 'case_histories';
+    $table = 'treatments';
 
 }
