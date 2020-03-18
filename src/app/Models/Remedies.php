@@ -33,13 +33,66 @@ class Remedies extends \Models\Base\Remedies
     return empty($results) ? [] : $results->castAll($model->castDepth);
   }
 
-
-  public static function put($payload)
+  public static function create($payload)
   {
+    $model = new self;
+    $identity = $model->app->get('IDENTITY');
 
-    //
+    $fields = [
+      'name', 'notes'
+    ];
 
-    return self::listAll(0, 1000, null, []);
+    //normal props
+    $model->copyfrom($payload, $fields);
+
+    //normal sanity checks
+    $mandatoryFields = ['name'];
+
+    $valid = self::checkMandatoryFields($model, $mandatoryFields);
+
+    if ($valid) {
+      $model->save();
+      return $model->cast(null, $model->castDepth);
+    }
+
+    throw new HTTPException('Bad Request.', 400, [
+      'dev' => 'All required fields may not have been filled in',
+      'internalCode' => '',
+      'more' => '',
+    ]);
+  }
+
+
+  public static function put($id, $payload)
+  {
+    $model = new self;
+
+    $valid = true;
+
+    $existing = self::getOne($id, true);
+
+    $fields = [
+      'name', 'notes'
+    ];
+    //normal props
+    $existing->copyfrom($payload, $fields);
+
+    //normal sanity checks
+    $mandatoryFields = ['name'];
+
+    $valid = self::checkMandatoryFields($existing, $mandatoryFields);
+
+    if ($valid) {
+      $existing->save();
+      return $existing->cast(null, $model->castDepth);
+    }
+
+    throw new HTTPException('Bad Request.', 400, array(
+        'dev' => 'All required fields may not have been filled in',
+        'internalCode' => '',
+        'more' => '',
+      )
+    );
   }
 
   public static function getOne($id, $internal = false)

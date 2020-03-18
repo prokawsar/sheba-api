@@ -40,7 +40,7 @@ class Remedies extends \Controllers\Base
 
     public function getOne(){
       $model = $this->getModel();
-      $this->respond($model::getOne());
+      $this->respond($model::getOne($this->params['id']));
     }
 
     public function put(){
