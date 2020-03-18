@@ -45,7 +45,7 @@ class Remedies extends \Controllers\Base
 
     public function put(){
       $model = $this->getModel();
-      $this->respond($model::put($this->requestBody));
+      $this->respond($model::put($this->params['id'], $this->requestBody));
     }
 
     public function post()

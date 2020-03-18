@@ -40,12 +40,12 @@ class Patients extends \Controllers\Base
 
     public function getOne(){
       $model = $this->getModel();
-      $this->respond($model::getOne());
+      $this->respond($model::getOne($this->params['id']));
     }
 
     public function put(){
       $model = $this->getModel();
-      $this->respond($model::put($this->requestBody));
+      $this->respond($model::put($this->params['id'], $this->requestBody));
     }
 
     public function post()
