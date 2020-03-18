@@ -35,6 +35,9 @@ class Patients extends \Models\Base
         'modified' => [
             'type' => 'DATETIME',
             'nullable' => true
+        ],
+        'case_histories' => [
+            'has-many' => ['\Models\Base\Case_histories', 'patient']
         ]
     ],
     $table = 'patients';
