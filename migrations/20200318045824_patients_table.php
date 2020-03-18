@@ -17,7 +17,7 @@ class PatientsTable extends Migration
             `phone` VARCHAR(128) NULL,
             `gender` VARCHAR(128) NULL,
             `address` VARCHAR(256) NULL,
-            `deleted` TINYINT(1) NULL,
+            `deleted` TINYINT(1) NULL DEFAULT 0,
             `created` DATETIME NULL,
             `modified` DATETIME NULL,
             PRIMARY KEY (`id`));
