@@ -164,6 +164,118 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'head' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'eyes' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'nose' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'ears' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'mouth' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'teeth' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'gums' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'throat' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'tonsills' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'neck_and_back' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'extrimities' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'bones' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'oesophagus' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'stomache' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'abdomen' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'liver' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'gallbladder' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'pancreas' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'spleen' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'intestine' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'duodenum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'digestion' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'chest' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'heart' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'lungs' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'mso_mgo' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'fso_mgo' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'anus_and_rectum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'deleted' => [
             'type' => 'INT1',
             'nullable' => true
