@@ -39,7 +39,20 @@ class Remedies extends \Models\Base\Remedies
     $identity = $model->app->get('IDENTITY');
 
     $fields = [
-      'name', 'notes'
+      'name',
+      'constitution', 'diathesis', 'miasm', 'temperament',
+      'thermals', 'attacks_and_time', 'side', 'temperature_and_weather',
+      'ailments_trom', 'sensations', 'mind', 'face', 'hair', 'skin', 'built',
+      'appetite', 'hunger', 'desires', 'aversions', 'intolerable', 'ameliarable',
+      'vission', 'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
+      'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
+      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
+
+      'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
+      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomache',
+      'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
+      'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
+      'notes'
     ];
 
     //normal props
@@ -72,7 +85,20 @@ class Remedies extends \Models\Base\Remedies
     $existing = self::getOne($id, true);
 
     $fields = [
-      'name', 'notes'
+      'name',
+      'constitution', 'diathesis', 'miasm', 'temperament',
+      'thermals', 'attacks_and_time', 'side', 'temperature_and_weather',
+      'ailments_trom', 'sensations', 'mind', 'face', 'hair', 'skin', 'built',
+      'appetite', 'hunger', 'desires', 'aversions', 'intolerable', 'ameliarable',
+      'vission', 'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
+      'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
+      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
+
+      'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
+      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomache',
+      'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
+      'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
+      'notes'
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
