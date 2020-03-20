@@ -39,14 +39,27 @@ class Case_histories extends \Models\Base\Case_histories
     $identity = $model->app->get('IDENTITY');
 
     $fields = [
-      'patient', 'notes'
+      'patient', 'face', 'mind', 'built', 'hair', 'tongue', 'pulse', 'breathing',
+
+      'anaemia', 'cyanosis', 'dehydration', 'dehydration', 'jaundice', 'skin',
+      'sensation', 'temperature_and_weather', 'thermals', 'susceptibility',
+      'bathing', 'vision', 'hearing', 'smelling', 'taste', 'thirst', 'appetite', 'hunger',
+      'desires', 'aversions', 'intolerable', 'ameliorable', 'indigestion', 'eructation',
+      'nausia', 'vomiting', 'sweating_perspiration', 'sleep', 'dreams', 'discharges', 'stool',
+      'urine', 'menstruation', 'leucorrhoea', 'habit', 'hobby', 'addicted', 'birth_history',
+      'milestones', 'mood_and_affect', 'speech', 'thought', 'attention_and_concentration',
+      'consciousness', 'appearance_and_behavior', 'memory', 'intelligency', 'judgement',
+      'insight', 'temperament', 'alone_and_darkness', 'frightness', 'constitution',
+      'diathesis', 'miasm', 'ailments_from', 'attacks_and_time', 'side', 'past_medical_history',
+      'family_medical_history', 'rare_peculiar_symptoms'
+
     ];
 
     //normal props
     $model->copyfrom($payload, $fields);
 
     //normal sanity checks
-    $mandatoryFields = ['patient'];
+    $mandatoryFields = ['mind'];
 
     $valid = self::checkMandatoryFields($model, $mandatoryFields);
 
@@ -72,13 +85,25 @@ class Case_histories extends \Models\Base\Case_histories
     $existing = self::getOne($id, true);
 
     $fields = [
-      'patient', 'notes'
+      'patient', 'face', 'mind', 'built', 'hair', 'tongue', 'pulse', 'breathing',
+
+      'anaemia', 'cyanosis', 'dehydration', 'dehydration', 'jaundice', 'skin',
+      'sensation', 'temperature_and_weather', 'thermals', 'susceptibility',
+      'bathing', 'vision', 'hearing', 'smelling', 'taste', 'thirst', 'appetite', 'hunger',
+      'desires', 'aversions', 'intolerable', 'ameliorable', 'indigestion', 'eructation',
+      'nausia', 'vomiting', 'sweating_perspiration', 'sleep', 'dreams', 'discharges', 'stool',
+      'urine', 'menstruation', 'leucorrhoea', 'habit', 'hobby', 'addicted', 'birth_history',
+      'milestones', 'mood_and_affect', 'speech', 'thought', 'attention_and_concentration',
+      'consciousness', 'appearance_and_behavior', 'memory', 'intelligency', 'judgement',
+      'insight', 'temperament', 'alone_and_darkness', 'frightness', 'constitution',
+      'diathesis', 'miasm', 'ailments_from', 'attacks_and_time', 'side', 'past_medical_history',
+      'family_medical_history', 'rare_peculiar_symptoms'
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
 
     //normal sanity checks
-    $mandatoryFields = ['patient'];
+    $mandatoryFields = ['mind'];
 
     $valid = self::checkMandatoryFields($existing, $mandatoryFields);
 
