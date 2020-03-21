@@ -62,6 +62,7 @@ class Case_histories extends \Models\Base\Case_histories
     $mandatoryFields = ['mind'];
 
     $valid = self::checkMandatoryFields($model, $mandatoryFields);
+    $valid = true;
 
     if ($valid) {
       $model->save();
