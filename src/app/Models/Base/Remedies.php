@@ -40,7 +40,7 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'ailments_trom' => [
+        'ailments_from' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
