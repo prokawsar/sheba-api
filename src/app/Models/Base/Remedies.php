@@ -216,7 +216,7 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'stomache' => [
+        'stomach' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -273,6 +273,14 @@ class Remedies extends \Models\Base
             'nullable' => true
         ],
         'anus_and_rectum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'modalities' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'clinical' => [
             'type' => 'TEXT',
             'nullable' => true
         ],

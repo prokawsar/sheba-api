@@ -49,10 +49,10 @@ class Remedies extends \Models\Base\Remedies
       'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
 
       'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
-      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomache',
+      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
       'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
       'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
-      'notes'
+      'notes', 'modalities', 'clinical'
     ];
 
     //normal props
@@ -95,10 +95,10 @@ class Remedies extends \Models\Base\Remedies
       'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
 
       'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
-      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomache',
+      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
       'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
       'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
-      'notes'
+      'notes', 'modalities', 'clinical'
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
