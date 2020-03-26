@@ -44,7 +44,7 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'sensations' => [
+        'sensation' => [
             'type' => 'TEXT',
             'nullable' => true
         ],

@@ -31,7 +31,7 @@ class Remedies extends \Controllers\Base
       'appetite', 'hunger', 'desires', 'aversions', 'intolerable',
       'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
       'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
-      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
+      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse', 'sensation',
 
       'head', 'eyes', 'nose', 'ears', 'teeth', 'gums', 'throat',
       'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
