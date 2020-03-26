@@ -151,7 +151,7 @@ class Case_histories extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'stool' => [
+        'stools' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
