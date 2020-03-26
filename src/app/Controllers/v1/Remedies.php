@@ -25,7 +25,20 @@ class Remedies extends \Controllers\Base
       'delete' => [],
     ];
 
-    protected $allowedSearchFields = ['name'];
+    protected $allowedSearchFields = ['name', 'constitution', 'diathesis', 'miasm', 'temperament',
+      'thermals', 'attacks_and_time', 'side', 'temperature_and_weather',
+      'ailments_from', 'mind', 'face', 'hair', 'skin', 'built',
+      'appetite', 'hunger', 'desires', 'aversions', 'intolerable',
+      'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
+      'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
+      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
+
+      'head', 'eyes', 'nose', 'ears', 'teeth', 'gums', 'throat',
+      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
+      'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
+      'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
+      'notes', 'modalities', 'clinical'
+    ];
 
     protected $modelsMap = [
       'default' => 'Models\Remedies',

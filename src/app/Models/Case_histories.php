@@ -41,7 +41,7 @@ class Case_histories extends \Models\Base\Case_histories
     $fields = [
       'patient', 'face', 'mind', 'built', 'hair', 'tongue', 'pulse', 'breathing',
 
-      'anaemia', 'cyanosis', 'dehydration', 'dehydration', 'jaundice', 'skin',
+      'anaemia', 'cyanosis', 'dehydration', 'jaundice', 'skin',
       'sensation', 'temperature_and_weather', 'thermals', 'susceptibility',
       'bathing', 'vision', 'hearing', 'smelling', 'taste', 'thirst', 'appetite', 'hunger',
       'desires', 'aversions', 'intolerable', 'ameliorable', 'indigestion', 'eructation',
@@ -88,7 +88,7 @@ class Case_histories extends \Models\Base\Case_histories
     $fields = [
       'patient', 'face', 'mind', 'built', 'hair', 'tongue', 'pulse', 'breathing',
 
-      'anaemia', 'cyanosis', 'dehydration', 'dehydration', 'jaundice', 'skin',
+      'anaemia', 'cyanosis', 'dehydration', 'jaundice', 'skin',
       'sensation', 'temperature_and_weather', 'thermals', 'susceptibility',
       'bathing', 'vision', 'hearing', 'smelling', 'taste', 'thirst', 'appetite', 'hunger',
       'desires', 'aversions', 'intolerable', 'ameliorable', 'indigestion', 'eructation',
