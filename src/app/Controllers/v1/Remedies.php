@@ -73,4 +73,10 @@ class Remedies extends \Controllers\Base
       $this->respond($model::delete($this->params['id']));
     }
 
+    public function search()
+    {
+      $model = $this->getModel();
+      $this->respond($model::search($this->requestBody));
+    }
+
 }

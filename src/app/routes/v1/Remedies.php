@@ -1,6 +1,10 @@
 <?php
-return [
+ return [
   'routes' => [
+    'post' => [
+      '/' => 'get',
+      '/search' => 'search'
+    ],
 
   ]
 ];
