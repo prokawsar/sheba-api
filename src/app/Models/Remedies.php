@@ -141,8 +141,17 @@ class Remedies extends \Models\Base\Remedies
     $model = new self;
     $identity = $model->app->get('IDENTITY');
     // work with matching here
+    /*
+    each fields value will be ',' separated, so each coma portion need to match with remedy field's coma portion
+    */
+    /*
+    need to match each payload's field value with each remedies value
+    need to give matching rate to each remedy, so we can sort them according to match rate
+    return top 5 most matched remedies
+    */
+    $all_remedies = self::listAll(0, 100);
 
-    var_dump($payload);
+    var_dump($all_remedies);
     exit;
 
     throw new HTTPException('Bad Request.', 400, [
