@@ -134,7 +134,23 @@ class Remedies extends \Models\Base\Remedies
       }
 
       throw new HTTPException('Not Found.', 404);
-    }
+  }
+
+  public static function search($payload)
+  {
+    $model = new self;
+    $identity = $model->app->get('IDENTITY');
+    // work with matching here
+
+    var_dump($payload);
+    exit;
+
+    throw new HTTPException('Bad Request.', 400, [
+      'dev' => 'All required fields may not have been filled in',
+      'internalCode' => '',
+      'more' => '',
+    ]);
+  }
 
 
 }
