@@ -24,7 +24,7 @@ class Remedies extends \Models\Base\Remedies
 
     //count how many rows total
     $total = $model->count($qobj);
-    $results = $model->find($qobj, ['offset' => $offset, 'limit' => $limit, 'order' => '`' . $model->table . '`.`id` ASC']);
+    $results = $model->find($qobj, ['offset' => $offset, 'limit' => $limit, 'order' => '`' . $model->table . '`.`name` ASC']);
 
        //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
