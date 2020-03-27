@@ -2,7 +2,7 @@
  return [
   'routes' => [
     'post' => [
-      '/' => 'get',
+      '/' => 'post',
       '/search' => 'search'
     ],
 
