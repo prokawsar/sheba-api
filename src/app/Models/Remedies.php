@@ -140,6 +140,17 @@ class Remedies extends \Models\Base\Remedies
   {
     $model = new self;
     $identity = $model->app->get('IDENTITY');
+    $_payload = [];
+    $matched_remedies = [];
+
+    //reducing null fields from payload
+    foreach ($payload as $key => $value) {
+      if($value){
+        $_payload[$key] = explode(',', $value);
+      }
+    }
+
+    var_dump($_payload);
     // work with matching here
     /*
     each fields value will be ',' separated, so each coma portion need to match with remedy field's coma portion
@@ -149,9 +160,9 @@ class Remedies extends \Models\Base\Remedies
     need to give matching rate to each remedy, so we can sort them according to match rate
     return top 5 most matched remedies
     */
-    $all_remedies = self::listAll(0, 100);
 
-    var_dump($all_remedies);
+    // $all_remedies = self::listAll(0, 100);
+    // var_dump($all_remedies);
     exit;
 
     throw new HTTPException('Bad Request.', 400, [
