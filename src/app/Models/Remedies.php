@@ -165,8 +165,8 @@ class Remedies extends \Models\Base\Remedies
     foreach ($_payload as $key => $values) { // $values are array of symptoms
       foreach($values as $value ){
           foreach($all_remedies as $remedy){ // each symptoms will be matched to every remedy
-            if (strpos($remedy[$key], $value) !== false) { // if that symptoms/word found whole field value
-                $matched_remedies[$remedy['name']]++;
+            if (strpos($remedy[$key], trim($value, ' ')) !== false) { // if that symptoms/word found whole field value
+              $matched_remedies[$remedy['name']]++;
             }
           }
       }
