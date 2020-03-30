@@ -150,7 +150,6 @@ class Remedies extends \Models\Base\Remedies
       }
     }
 
-    var_dump($_payload);
     // work with matching here
     /*
     each fields value will be ',' separated, so each coma portion need to match with remedy field's coma portion
@@ -161,9 +160,19 @@ class Remedies extends \Models\Base\Remedies
     return top 5 most matched remedies
     */
 
-    // $all_remedies = self::listAll(0, 100);
-    // var_dump($all_remedies);
-    exit;
+    $all_remedies = self::listAll(0, 100);
+
+    foreach ($_payload as $key => $values) { // $values are array of symptoms
+      foreach($values as $value ){
+          foreach($all_remedies as $remedy){ // each symptoms will be matched to every remedy
+            if (strpos($remedy[$key], $value) !== false) { // if that symptoms/word found whole field value
+                $matched_remedies[$remedy['name']]++;
+            }
+          }
+      }
+    }
+
+    return $matched_remedies;
 
     throw new HTTPException('Bad Request.', 400, [
       'dev' => 'All required fields may not have been filled in',
