@@ -7,7 +7,11 @@ use \Exceptions\HTTPException;
 class Case_histories extends \Models\Base\Case_histories
 {
 
-  public $castDepth = null;
+  public $castDepth = [
+    'patient' => [
+      '*' => 0
+    ]
+  ];
 
 
   public static function listAll($offset, $limit, $filters = null, $opts = [])
@@ -15,7 +19,7 @@ class Case_histories extends \Models\Base\Case_histories
     $model = new self;
     $metadata = $model->app->get('METADATAPROVIDER');
 
-    $query = '`' . $model->table . '`.`deleted` <> 1';
+    $query = '`' . $model->table . '`.`deleted` <> 1 AND `patient` IS NOT null';
     $bindings = [];
     $results = [];
     $total = 0;
