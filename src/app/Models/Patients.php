@@ -7,8 +7,11 @@ use \Exceptions\HTTPException;
 class Patients extends \Models\Base\Patients
 {
 
-  public $castDepth = null;
-
+  public $castDepth = [
+    'case_history' => [
+      '*' => 0
+    ]
+  ];
 
   public static function listAll($offset, $limit, $filters = null, $opts = [])
   {
