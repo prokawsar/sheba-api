@@ -36,11 +36,7 @@ class Fields extends \Models\Base\Fields
   public static function create($payload)
   {
     $model = new self;
-    $identity = $model->app->get('IDENTITY');
-
-    $fields = [
-      'name',
-    ];
+    $fields = ['name',];
 
     //normal props
     $model->copyfrom($payload, $fields);
@@ -66,9 +62,7 @@ class Fields extends \Models\Base\Fields
   public static function put($id, $payload)
   {
     $model = new self;
-
     $valid = true;
-
     $existing = self::getOne($id, true);
 
     $fields = [
@@ -98,15 +92,11 @@ class Fields extends \Models\Base\Fields
   public static function getOne($id, $internal = false)
   {
       $model = new self;
-      $identity = $model->app->get('IDENTITY');
-
       $model->load([$model->primary . ' = ? AND `deleted` <> 1', $id]);
-
 
       if(!$model->dry()){
         return $internal ? $model : $model->cast(null, $model->castDepth);
       }
-
       throw new HTTPException('Not Found.', 404);
   }
 
