@@ -3,8 +3,12 @@
   'routes' => [
     'post' => [
       '/' => 'post',
-      '/search' => 'search'
+      '/search' => 'search',
+      '/field' => 'createField',
     ],
-
+    'put' => [
+      '/@id' => 'put',
+      '/field/@id' => 'updateField',
+    ],
   ]
 ];

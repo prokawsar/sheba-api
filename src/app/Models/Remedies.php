@@ -124,16 +124,22 @@ class Remedies extends \Models\Base\Remedies
   public static function getOne($id, $internal = false)
   {
       $model = new self;
-      $identity = $model->app->get('IDENTITY');
-
       $model->load([$model->primary . ' = ? AND `deleted` <> 1', $id]);
-
 
       if(!$model->dry()){
         return $internal ? $model : $model->cast(null, $model->castDepth);
       }
-
       throw new HTTPException('Not Found.', 404);
+  }
+
+  public static function createField($payload)
+  {
+    Fields::create($payload);
+  }
+
+  public static function updateField($id, $payload)
+  {
+    Fields::put($id, $payload);
   }
 
   public static function search($payload)

@@ -79,4 +79,15 @@ class Remedies extends \Controllers\Base
       $this->respond($model::search($this->requestBody));
     }
 
+    public function createField()
+    {
+      $model = $this->getModel();
+      $this->respond($model::createField($this->requestBody));
+    }
+
+    public function updateField()
+    {
+      $model = $this->getModel();
+      $this->respond($model::updateField($this->params['id'], $this->requestBody));
+    }
 }
