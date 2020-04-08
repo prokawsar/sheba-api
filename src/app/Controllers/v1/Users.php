@@ -70,8 +70,4 @@ class Users extends \Controllers\Base
       $this->respond($model::uploadAvatar($this->params['id']));
     }
 
-    public function getPremises(){
-      $model = $this->getModel();
-      $this->respond($model::getPremises($this->params['id']));
-    }
 }
