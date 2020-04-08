@@ -296,6 +296,9 @@ class Remedies extends \Models\Base
             'type' => 'DATETIME',
             'nullable' => true
         ],
+        'remedy_data' => [
+            'has-many' => ['\Models\Base\Remedy_data', 'remedy']
+        ],
         'treatments' => [
             'has-many' => ['\Models\Base\Treatments', 'remedy']
         ]
