@@ -132,16 +132,6 @@ class Remedies extends \Models\Base\Remedies
       throw new HTTPException('Not Found.', 404);
   }
 
-  public static function createField($payload)
-  {
-    Fields::create($payload);
-  }
-
-  public static function updateField($id, $payload)
-  {
-    Fields::put($id, $payload);
-  }
-
   public static function search($payload)
   {
     $model = new self;
