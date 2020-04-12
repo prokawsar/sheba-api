@@ -7,7 +7,11 @@ use \Exceptions\HTTPException;
 class Remedies extends \Models\Base\Remedies
 {
 
-  public $castDepth = null;
+  public $castDepth = [
+    'remedy_data' => [
+      '*' => 0
+    ]
+  ];
 
 
   public static function listAll($offset, $limit, $filters = null, $opts = [])
@@ -66,13 +70,12 @@ class Remedies extends \Models\Base\Remedies
     if ($valid) {
       $model->save();
 
-      // returning memory issue
       $fields = Fields::listAll(0, 100);
       foreach($fields as $field){
-      //   Remedy_data::create([
-      //     'field' => $field['id'],
-      //     'remedy' => $model->id
-      // ]);
+        Remedy_data::create([
+          'field' => $field['id'],
+          'remedy' => $model->id
+        ]);
       }
       return $model->cast(null, $model->castDepth);
     }

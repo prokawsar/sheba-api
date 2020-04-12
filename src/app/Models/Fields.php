@@ -7,7 +7,11 @@ use \Exceptions\HTTPException;
 class Fields extends \Models\Base\Fields
 {
 
-  public $castDepth = null;
+  public $castDepth = [
+    'remedy_data' => [
+      '*' => 0
+    ]
+  ];
 
 
   public static function listAll($offset, $limit, $filters = null, $opts = [])
