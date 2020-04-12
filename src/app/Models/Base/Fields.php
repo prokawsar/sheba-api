@@ -8,6 +8,10 @@ class Fields extends \Models\Base
             'type' => 'VARCHAR128',
             'nullable' => true
         ],
+        'group' => [
+            'type' => 'VARCHAR128',
+            'nullable' => true
+        ],
         'deleted' => [
             'type' => 'INT1',
             'nullable' => true
