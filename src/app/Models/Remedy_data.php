@@ -7,7 +7,14 @@ use \Exceptions\HTTPException;
 class Remedy_data extends \Models\Base\Remedy_data
 {
 
-  public $castDepth = null;
+  public $castDepth = [
+    'field' => [
+      '*' => 0
+    ],
+    'remedy' => [
+      '*' => 0
+    ]
+  ];
 
 
   public static function listAll($offset, $limit, $filters = null, $opts = [])
@@ -66,18 +73,14 @@ class Remedy_data extends \Models\Base\Remedy_data
   public static function put($id, $payload)
   {
     $model = new self;
-
     $valid = true;
-
     $existing = self::getOne($id, true);
 
     $fields = [
       'field', 'remedy', 'symptoms'
     ];
-    //normal props
     $existing->copyfrom($payload, $fields);
 
-    //normal sanity checks
     $mandatoryFields = ['field', 'remedy'];
 
     $valid = self::checkMandatoryFields($existing, $mandatoryFields);
@@ -98,15 +101,11 @@ class Remedy_data extends \Models\Base\Remedy_data
   public static function getOne($id, $internal = false)
   {
       $model = new self;
-      $identity = $model->app->get('IDENTITY');
-
       $model->load([$model->primary . ' = ? AND `deleted` <> 1', $id]);
-
 
       if(!$model->dry()){
         return $internal ? $model : $model->cast(null, $model->castDepth);
       }
-
       throw new HTTPException('Not Found.', 404);
   }
 

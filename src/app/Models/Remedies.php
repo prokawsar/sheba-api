@@ -65,6 +65,15 @@ class Remedies extends \Models\Base\Remedies
 
     if ($valid) {
       $model->save();
+
+      // returning memory issue
+      $fields = Fields::listAll(0, 100);
+      foreach($fields as $field){
+      //   Remedy_data::create([
+      //     'field' => $field['id'],
+      //     'remedy' => $model->id
+      // ]);
+      }
       return $model->cast(null, $model->castDepth);
     }
 
