@@ -36,7 +36,7 @@ class Fields extends \Models\Base\Fields
   public static function create($payload)
   {
     $model = new self;
-    $fields = ['name',];
+    $fields = ['name', 'group'];
 
     //normal props
     $model->copyfrom($payload, $fields);
@@ -66,7 +66,7 @@ class Fields extends \Models\Base\Fields
     $existing = self::getOne($id, true);
 
     $fields = [
-      'name',
+      'name', 'group'
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
