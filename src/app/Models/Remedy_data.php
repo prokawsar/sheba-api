@@ -109,4 +109,11 @@ class Remedy_data extends \Models\Base\Remedy_data
       throw new HTTPException('Not Found.', 404);
   }
 
+  public static function getByRemedy($id)
+  {
+    $model = new self;
+    $model->load('GROUP BY ?'. $id);
+
+  }
+
 }
