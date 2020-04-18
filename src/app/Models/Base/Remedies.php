@@ -8,6 +8,10 @@ class Remedies extends \Models\Base
             'type' => 'VARCHAR128',
             'nullable' => true
         ],
+        'built' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'constitution' => [
             'type' => 'TEXT',
             'nullable' => true
@@ -24,23 +28,11 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'thermals' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'attacks_and_time' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'side' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
         'temperature_and_weather' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'ailments_from' => [
+        'thermal_sensitivity' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -48,31 +40,7 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'mind' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'face' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'hair' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'skin' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'built' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'appetite' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'hunger' => [
+        'tendency_take_cold' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -84,55 +52,111 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'intolerable' => [
+        'birth_history_milestones' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'ameliarable' => [
+        'tissues' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'vission' => [
+        'stages_and_states' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'hearing' => [
+        'attacks_and_side' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'smelling' => [
+        'ailments_from' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'taste' => [
+        'affections' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'tongue' => [
+        'clinical' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'thirst' => [
+        'modalities' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'sleep' => [
+        'mental_state_and_disorders' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'dreams' => [
+        'appearance_and_behavior' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'stools' => [
+        'attention_and_concentration' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'urine' => [
+        'expression' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'perspiration' => [
+        'consciousness' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'mood_and_affect' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'memory' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'speech' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'thoughts_and_ideas' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'perception' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'intelligence' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'judgment' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'fear_and_live_alone' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'boring' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'peaceful' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'anger' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hobby' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'habit' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'addiction' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -156,11 +180,15 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'pulse' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'breathing' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'pulse' => [
+        'peculiar_rare_symptoms' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -168,11 +196,43 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'face_and_jaws' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'eyes' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'nose' => [
+        'hearing' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'skull_cranium' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'brain_and_nerves' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'vertigo' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'headache' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hair' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'organs' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sight' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -180,7 +240,27 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'nose' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'smell' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'septum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'mouth' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'tongue' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'taste' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -192,6 +272,18 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'm_m' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'lips' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'saliva' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'throat' => [
             'type' => 'TEXT',
             'nullable' => true
@@ -200,15 +292,27 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'neck_and_back' => [
+        'uvula' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'extrimities' => [
+        'external' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'bones' => [
+        'internal' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'thirst' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hunger' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'appetite' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -221,6 +325,22 @@ class Remedies extends \Models\Base
             'nullable' => true
         ],
         'abdomen' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'epigastrium' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hpyochondrium' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'umbilical_region' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'lumbar_region' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -240,7 +360,71 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'hypogastrium' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'iliac_region' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'inguinal_region' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'intestine' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'anus_and_rectum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'stools' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'skin' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'intolerable' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'ameliarable' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'vission' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'smelling' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sleep' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'dreams' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'perspiration' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'neck_and_back' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'extrimities' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'bones' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -264,6 +448,10 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'urinary_system' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'mso_mgo' => [
             'type' => 'TEXT',
             'nullable' => true
@@ -272,15 +460,11 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'anus_and_rectum' => [
+        'preculiar_rare_symptoms' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'modalities' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'clinical' => [
+        'relationship' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -295,6 +479,9 @@ class Remedies extends \Models\Base
         'modified' => [
             'type' => 'DATETIME',
             'nullable' => true
+        ],
+        'remedy_data' => [
+            'has-many' => ['\Models\Base\Remedy_data', 'remedy']
         ],
         'treatments' => [
             'has-many' => ['\Models\Base\Treatments', 'remedy']
