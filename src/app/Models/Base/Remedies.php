@@ -384,7 +384,199 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'urinary_system' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'quantity' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'color' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sediment' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'befor' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'during' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'after' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'kidneys' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'ureters' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'bladder' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'urethra' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'male_genital' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'mgo_desires' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'powers' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'emission' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'female_genital' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'fgo_organs' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'mensruation' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'leucorrhoea' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'pregnancy' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'respiratory_system' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'respi_organs' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'respi_breathing' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'lymphatic_system' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'endocrine_disorders' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hormones' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'chest' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sternum' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'ribs' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'circulatory_system' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hearts_movements' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sacrum_back_spine' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'vertibra' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'nape' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'scapula' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'shoulders' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'axilla' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'extrimities' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hips' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'pelvis' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'buttocks' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'all_over_the_body' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'bones' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'joints' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'muscles' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'skin' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'sleep' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'dreams' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'fever_chill_heat_sweat' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -404,27 +596,11 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'sleep' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'dreams' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
         'perspiration' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
         'neck_and_back' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'extrimities' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'bones' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -436,27 +612,11 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'chest' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
         'heart' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
         'lungs' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'urinary_system' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'mso_mgo' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'fso_mgo' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
