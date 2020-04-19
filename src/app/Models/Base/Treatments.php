@@ -5,7 +5,8 @@ class Treatments extends \Models\Base
 {
     protected $fieldConf = [
         'case_history' => [
-            'belongs-to-one' => '\Models\Base\Case_histories'
+            'type' => 'INT4',
+            'nullable' => true
         ],
         'patient' => [
             'belongs-to-one' => '\Models\Base\Patients'
