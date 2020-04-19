@@ -596,15 +596,7 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'perspiration' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
         'neck_and_back' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'duodenum' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
@@ -617,10 +609,6 @@ class Remedies extends \Models\Base
             'nullable' => true
         ],
         'lungs' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'preculiar_rare_symptoms' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
