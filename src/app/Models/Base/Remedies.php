@@ -196,18 +196,6 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
-        'face_and_jaws' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'eyes' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
-        'hearing' => [
-            'type' => 'TEXT',
-            'nullable' => true
-        ],
         'skull_cranium' => [
             'type' => 'TEXT',
             'nullable' => true
@@ -228,6 +216,14 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'face_and_jaws' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'eyes' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
         'organs' => [
             'type' => 'TEXT',
             'nullable' => true
@@ -237,6 +233,10 @@ class Remedies extends \Models\Base
             'nullable' => true
         ],
         'ears' => [
+            'type' => 'TEXT',
+            'nullable' => true
+        ],
+        'hearing' => [
             'type' => 'TEXT',
             'nullable' => true
         ],
