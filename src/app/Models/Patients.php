@@ -71,7 +71,6 @@ class Patients extends \Models\Base\Patients
   public static function put($id, $payload)
   {
     $model = new self;
-
     $valid = true;
 
     $existing = self::getOne($id, true);
