@@ -39,20 +39,7 @@ class Remedies extends \Models\Base\Remedies
     $identity = $model->app->get('IDENTITY');
 
     $fields = [
-      'name',
-      'constitution', 'diathesis', 'miasm', 'temperament',
-      'thermals', 'attacks_and_time', 'side', 'temperature_and_weather',
-      'ailments_from', 'sensation', 'mind', 'face', 'hair', 'skin', 'built',
-      'appetite', 'hunger', 'desires', 'aversions', 'intolerable', 'ameliarable',
-      'vission', 'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
-      'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
-      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
-
-      'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
-      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
-      'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
-      'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
-      'notes', 'modalities', 'clinical'
+      'name'
     ];
 
     //normal props
@@ -85,20 +72,38 @@ class Remedies extends \Models\Base\Remedies
     $existing = self::getOne($id, true);
 
     $fields = [
-      'name',
-      'constitution', 'diathesis', 'miasm', 'temperament',
-      'thermals', 'attacks_and_time', 'side', 'temperature_and_weather',
-      'ailments_from', 'sensation', 'mind', 'face', 'hair', 'skin', 'built',
-      'appetite', 'hunger', 'desires', 'aversions', 'intolerable', 'ameliarable',
-      'vission', 'hearing', 'smelling', 'taste', 'tongue', 'thirst', 'sleep',
-      'dreams', 'stools', 'urine', 'perspiration', 'nutrition', 'anaemia',
-      'cyanosis', 'dehydration', 'jaundice', 'breathing', 'pulse',
-
-      'head', 'eyes', 'nose', 'ears', 'mouth', 'teeth', 'gums', 'throat',
-      'tonsills', 'neck_and_back', 'extrimities', 'bones', 'oesophagus', 'stomach',
-      'abdomen', 'liver', 'gallbladder', 'pancreas', 'spleen', 'intestine', 'duodenum',
-      'digestion', 'chest', 'heart', 'lungs', 'mso_mgo', 'fso_mgo', 'anus_and_rectum',
-      'notes', 'modalities', 'clinical'
+      'name', 'built', 'constitution', 'diathesis', 'miasm', 'temperament',
+      'temperature_and_weather', 'thermal_sensitivity', 'sensation',
+      'tendency_take_cold', 'desires', 'aversions', 'birth_history_milestones',
+      'tissues', 'stages_and_states', 'attacks_and_side', 'ailments_from',
+      'affections', 'clinical', 'modalities', 'mental_state_and_disorders',
+      'appearance_and_behavior', 'attention_and_concentration', 'expression',
+      'consciousness', 'mood_and_affect', 'memory', 'speech',
+      'thoughts_and_ideas', 'perception', 'intelligence', 'judgment',
+      'fear_and_live_alone', 'boring', 'peaceful', 'anger', 'hobby',
+      'habit', 'addiction', 'nutrition', 'anaemia', 'cyanosis',
+      'dehydration', 'jaundice', 'pulse', 'breathing', 'peculiar_rare_symptoms',
+      'head', 'skull_cranium', 'brain_and_nerves', 'vertigo', 'headache',
+      'hair', 'face_and_jaws', 'eyes', 'organs', 'sight', 'ears', 'hearing',
+      'nose', 'smell', 'septum', 'mouth', 'tongue', 'taste', 'teeth', 'gums',
+      'm_m', 'lips', 'saliva', 'throat', 'tonsills', 'uvula', 'external',
+      'internal', 'thirst', 'hunger', 'appetite', 'oesophagus', 'stomach',
+      'abdomen', 'epigastrium', 'hpyochondrium', 'umbilical_region',
+      'lumbar_region', 'liver', 'gallbladder', 'pancreas', 'spleen',
+      'hypogastrium', 'iliac_region', 'inguinal_region', 'intestine',
+      'anus_and_rectum', 'stools', 'urinary_system', 'quantity', 'color',
+      'sediment', 'befor', 'during', 'after', 'kidneys', 'ureters',
+      'bladder', 'urethra', 'male_genital', 'mgo_desires', 'powers',
+      'emission', 'female_genital', 'fgo_organs', 'mensruation',
+      'leucorrhoea', 'pregnancy', 'respiratory_system', 'respi_organs',
+      'respi_breathing', 'lymphatic_system', 'endocrine_disorders',
+      'hormones', 'chest', 'sternum', 'ribs', 'circulatory_system',
+      'hearts_movements', 'sacrum_back_spine', 'vertibra', 'nape',
+      'scapula', 'shoulders', 'axilla', 'extrimities', 'hips', 'pelvis',
+      'buttocks', 'all_over_the_body', 'bones', 'joints', 'muscles', 'skin',
+      'sleep', 'dreams', 'fever_chill_heat_sweat', 'intolerable', 'ameliarable',
+      'vission', 'smelling', 'neck_and_back', 'digestion', 'heart', 'lungs',
+      'relationship',
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
