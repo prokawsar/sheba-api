@@ -1,0 +1,95 @@
+{
+  "generators":{
+    "migration":{
+      "name": "Generate new migration file",
+      "command": "src/vendor/bin/phpmig generate ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the migration file name?",
+        "initial": ""
+      }
+    },
+    "base-models":{
+      "description":"Generate ALL Base models based on DB structure",
+      "command":"php bin/cli GenerateModels"
+    },
+    "module":{
+      "name": "Generate new controller, model and route file in one step",
+      "command": "php bin/cli GenerateModules modules ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the module name?",
+        "initial": ""
+      }
+    },
+    "route":{
+      "name": "Generate new route file",
+      "command": "php bin/cli GenerateModules route ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the route file name?",
+        "initial": ""
+      }
+    },
+    "model":{
+      "name": "Generate new model file",
+      "command": "php bin/cli GenerateModules model ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the model file name?",
+        "initial": ""
+      }
+    },
+    "controller":{
+      "name": "Generate new controller file",
+      "command": "php bin/cli GenerateModules controller ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the controller file name?",
+        "initial": ""
+      }
+    },
+    "test-file":{
+      "name": "Generate new test class file",
+      "command": "php bin/cli Test generate ${filename}",
+      "Input":{
+        "name": "filename",
+        "validate": {
+          "filename": "required"
+        },
+        "message": "What is the test file name? (specify folder with a :)",
+        "initial": ""
+      }
+    }
+  },
+  "scripts":{
+    "migrate": "src/vendor/bin/phpmig migrate",
+    "run-tests":{
+      "name": "Run test files",
+      "command": "php bin/cli Test start ${filename}",
+      "Input":{
+        "name": "filename",
+        "message": "What is the test file name? (specify folder with a :, leave empty to run all)",
+        "initial": ""
+      }
+    },
+    "set-cli-perms":{
+      "command":"chmod +x bin/cli"
+    }
+  }
+}

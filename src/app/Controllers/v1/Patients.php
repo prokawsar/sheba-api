@@ -25,7 +25,7 @@ class Patients extends \Controllers\Base
       'delete' => [],
     ];
 
-    protected $allowedSearchFields = ['name', 'phone', 'gender', 'age'];
+    protected $allowedSearchFields = ['id', 'name', 'phone', 'gender', 'age', 'address'];
 
     protected $modelsMap = [
       'default' => 'Models\Patients',
