@@ -9,7 +9,7 @@ class Remedies extends \Models\Base\Remedies
 
   public $castDepth = null;
 
-
+  
   public static function listAll($offset, $limit, $filters = null, $opts = [])
   {
     $model = new self;
@@ -26,11 +26,30 @@ class Remedies extends \Models\Base\Remedies
     $total = $model->count($qobj);
     $results = $model->find($qobj, ['offset' => $offset, 'limit' => $limit, 'order' => '`' . $model->table . '`.`name` ASC']);
 
-       //assign that total to METADATAPROVIDER
+    //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
+    
+    if(!empty($results)){
+      $remedies = $results->castAll($model->castDepth);
+      $index = 0;
+      foreach($remedies as $remedy){
+        $mark = 0;
+        foreach ($remedy as $key => $value) {
+          if($value){
+            $mark++;
+          }
+        }
+        
+        $percentage = ($mark / count($remedy)) * 100;
+        $remedies[$index]['total_data_size'] = $percentage;
+        $index++;
+      }
+      return $remedies;
+    }else{
+      return [];
+    }
 
-
-    return empty($results) ? [] : $results->castAll($model->castDepth);
+    // return empty($results) ? [] : $results->castAll($model->castDepth);
   }
 
   public static function create($payload)
