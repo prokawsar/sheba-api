@@ -626,6 +626,9 @@ class Case_histories extends \Models\Base
         'modified' => [
             'type' => 'DATETIME',
             'nullable' => true
+        ],
+        'treatments' => [
+            'has-many' => ['\Models\Base\Treatments', 'case_history']
         ]
     ],
     $table = 'case_histories';
