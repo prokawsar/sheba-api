@@ -29,26 +29,7 @@ class Remedies extends \Models\Base\Remedies
     //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
     
-    if(!empty($results)){
-      $remedies = $results->castAll($model->castDepth);
-      $index = 0;
-      foreach($remedies as $remedy){
-        $mark = 0;
-        foreach ($remedy as $key => $value) {
-          if($value){
-            $mark++;
-          }
-        }
-        
-        $percentage = ($mark / count($remedy)) * 100;
-        $remedies[$index]['total_data_size'] = $percentage;
-        $index++;
-      }
-      return $remedies;
-    }else{
-      return [];
-    }
-
+    return self::returnWithPercentage($model, $results);
     // return empty($results) ? [] : $results->castAll($model->castDepth);
   }
 
@@ -157,4 +138,26 @@ class Remedies extends \Models\Base\Remedies
       throw new HTTPException('Not Found.', 404);
   }
 
+  public static function returnWithPercentage($model, $results)
+  {
+    if(!empty($results)){
+      $remedies = $results->castAll($model->castDepth);
+      $index = 0;
+      foreach($remedies as $remedy){
+        $mark = 0;
+        foreach ($remedy as $key => $value) {
+          if($value){
+            $mark++;
+          }
+        }
+        
+        $percentage = ($mark / count($remedy)) * 100;
+        $remedies[$index]['total_data_size'] = $percentage;
+        $index++;
+      }
+      return $remedies;
+    }else{
+      return [];
+    }
+  }
 }
