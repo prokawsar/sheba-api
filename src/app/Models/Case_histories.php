@@ -10,7 +10,8 @@ class Case_histories extends \Models\Base\Case_histories
   public $castDepth = [
     'patient' => [
       '*' => 0
-    ]
+    ],
+    'treatments' => 0
   ];
 
 
