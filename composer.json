@@ -1,5 +1,5 @@
 {
-    "name": "sheba-homoeo-api",
+    "name": "prokawsar/sheba-api",
     "scripts":{
         "mig": "src\\vendor\\bin\\phpmig",
         "test": "php bin/test",
@@ -8,7 +8,7 @@
     "require": {
         "bcosca/fatfree-core": "3.5.1",
         "ikkez/f3-cortex": "1.4.1",
-        "davedevelopment/phpmig": "^1.2",
+        "davedevelopment/phpmig": "1.5",
         "pimple/pimple": "~3.0",
         "aws/aws-sdk-php": "^3.18",
         "ekhaled/f3-cortex-model-generator": "1.6",
