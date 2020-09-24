@@ -121,7 +121,7 @@ class Auth extends \Controllers\Base
     }
 
     throw new HTTPException(
-      'Invalid username / password combination1212',
+      'Invalid username / password combination',
       403
     );
   }
