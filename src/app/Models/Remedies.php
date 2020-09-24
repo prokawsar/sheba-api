@@ -38,9 +38,7 @@ class Remedies extends \Models\Base\Remedies
     $model = new self;
     $identity = $model->app->get('IDENTITY');
 
-    $fields = [
-      'name'
-    ];
+    $fields = ['name'];
 
     //normal props
     $model->copyfrom($payload, $fields);
@@ -48,7 +46,7 @@ class Remedies extends \Models\Base\Remedies
     //normal sanity checks
     $mandatoryFields = ['name'];
 
-    $valid = self::checkMandatoryFields($model, $mandatoryFields);
+    $valid = self::checkMandatoryFields($model, $mandatoryFields) && self::checkDuplicateName($payload['name']);
 
     if ($valid) {
       $model->save();
@@ -159,5 +157,18 @@ class Remedies extends \Models\Base\Remedies
     }else{
       return [];
     }
+  }
+  
+  public static function checkDuplicateName($name)
+  {
+      $model = new self;
+      $model->load(['name = ? AND deleted <> ?', $name, 1]);
+
+      if (!$model->dry()) {
+        throw new HTTPException($name . ' is already in use.', 406);
+      } else {
+        return true;
+      }
+    
   }
 }
