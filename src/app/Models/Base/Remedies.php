@@ -616,6 +616,10 @@ class Remedies extends \Models\Base
             'type' => 'TEXT',
             'nullable' => true
         ],
+        'book_references' => [
+            'type' => 'VARCHAR256',
+            'nullable' => true
+        ],
         'deleted' => [
             'type' => 'INT1',
             'nullable' => true

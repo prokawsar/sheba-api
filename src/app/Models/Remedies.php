@@ -101,7 +101,7 @@ class Remedies extends \Models\Base\Remedies
       'buttocks', 'all_over_the_body', 'bones', 'joints', 'muscles', 'skin',
       'sleep', 'dreams', 'fever_chill_heat_sweat', 'intolerable', 'ameliarable',
       'vission', 'smelling', 'neck_and_back', 'digestion', 'heart', 'lungs',
-      'relationship',
+      'relationship', 'book_references'
     ];
     //normal props
     $existing->copyfrom($payload, $fields);
