@@ -42,8 +42,8 @@ class Treatments extends \Models\Base\Treatments
     $model = new self;
     $identity = $model->app->get('IDENTITY');
 
-    $fields = [
-      'case_history', 'patient', 'remedy', 'notes',
+    $fields = ['case_history', 'patient', 'remedy', 'notes',
+      'taking_rule', 'power'
     ];
 
     //normal props
@@ -75,7 +75,7 @@ class Treatments extends \Models\Base\Treatments
 
     $existing = self::getOne($id, true);
 
-    $fields = [ 'remedy', 'notes', ];
+    $fields = [ 'remedy', 'notes', 'taking_rule', 'power' ];
     //normal props
     $existing->copyfrom($payload, $fields);
 
