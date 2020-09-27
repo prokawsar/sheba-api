@@ -79,15 +79,17 @@ class Case_histories extends \Models\Base\Case_histories
 
     ];
 
-    if($payload['patient'] && !empty($payload['patient'])){
-      $patient = Patients::create($payload['patient']);
-      $model->patient = $patient['id'];
-    }
     //normal props
     $model->copyfrom($payload, $fields);
 
+    if($payload['patient'] && !empty($payload['patient']['id'])){
+      $model->patient = $payload['patient']['id'];
+    }else{
+      $patient = Patients::create($payload['patient']);
+      $model->patient = $patient['id'];      
+    }
     //normal sanity checks
-    $mandatoryFields = [];
+    $mandatoryFields = ['patient'];
 
     $valid = self::checkMandatoryFields($model, $mandatoryFields);
     $valid = true;
