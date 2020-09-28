@@ -77,7 +77,6 @@ class Case_histories extends \Models\Base\Case_histories
   {
     $model = new self;
     $valid = true;
-
     $existing = self::getOne($id, true);
 
     $fields = self::field();
@@ -105,14 +104,14 @@ class Case_histories extends \Models\Base\Case_histories
 
   public static function getOne($id, $internal = false)
   {
-      $model = new self;
-      $model->load([$model->primary . ' = ? AND `deleted` <> 1', $id]);
+    $model = new self;
+    $model->load([$model->primary . ' = ? AND `deleted` <> 1', $id]);
 
-      if(!$model->dry()){
-        return $internal ? $model : $model->cast(null, $model->castDepth);
-      }
+    if(!$model->dry()){
+      return $internal ? $model : $model->cast(null, $model->castDepth);
+    }
 
-      throw new HTTPException('Not Found.', 404);
+    throw new HTTPException('Not Found.', 404);
   }
 
   public static function field()
