@@ -114,6 +114,31 @@ class Case_histories extends \Models\Base\Case_histories
     throw new HTTPException('Not Found.', 404);
   }
 
+  public static function listWithTreatment($filters = null)
+  {
+    $model = new self;
+    $metadata = $model->app->get('METADATAPROVIDER');
+
+    $query = '`' . $model->table . '`.`deleted` <> 1 AND `patient` IS NOT null';
+    $bindings = [];
+    $results = [];
+    $qobj = self::filteredQuery($filters, $query, $bindings, $model->table);
+
+    $results = $model->find($qobj, ['offset' => 0, 'limit' => 100, 'order' => '`' . $model->table . '`.`modified` DESC']);
+    $results = empty($results) ? [] : $results->castAll($model->castDepth);
+
+    $newr = array_filter($results, function ($item){
+      return !is_null($item['treatments']);
+    });
+    
+    $result = [];
+    foreach($newr as $item){
+      array_push($result, $item);
+    }
+    $metadata->setTotal(count($result));
+    return $result;
+  }
+  
   public static function field()
   {
     return [
