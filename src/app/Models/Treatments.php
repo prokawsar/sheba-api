@@ -45,13 +45,13 @@ class Treatments extends \Models\Base\Treatments
     $fields = ['case_history', 'patient', 'remedy', 'notes',
       'taking_rule', 'power'
     ];
-
+    
     //normal props
     $model->copyfrom($payload, $fields);
 
     //normal sanity checks
     $mandatoryFields = [];
-
+    
     $valid = self::checkMandatoryFields($model, $mandatoryFields);
     $valid = true;
 
@@ -106,7 +106,25 @@ class Treatments extends \Models\Base\Treatments
         return $internal ? $model : $model->cast(null, $model->castDepth);
       }
       throw new HTTPException('Not Found.', 404);
-    }
+  }
 
+  public static function create_with_case($payload)
+  {
+    
+    if($payload['case']){
+      $case_history = Case_histories::create($payload['case']);
+    }
+    
+    if($payload['data'] && is_array($payload['data'])){
+      foreach($payload['data'] as $treatment){
+        $treatment["case_history"] = $case_history['id'];
+        $treatment["patient"] = $case_history['patient']['id'];
+        self::create($treatment);        
+      }      
+    }
+    
+    return ['message' => 'Created Successfully'];
+    
+  }
 
 }
