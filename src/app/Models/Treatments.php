@@ -113,6 +113,10 @@ class Treatments extends \Models\Base\Treatments
     
     if($payload['case']){
       $case_history = Case_histories::create($payload['case']);
+    }else if($payload['prescribe']){
+      $case_history['id'] = $payload['prescribe']['id'];
+      $case_history['patient']['id'] = $payload['prescribe']['patient'];
+        
     }
     
     if($payload['data'] && is_array($payload['data'])){
