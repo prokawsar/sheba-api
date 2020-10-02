@@ -15,7 +15,8 @@
         "phpmailer/phpmailer": "^5.2",
         "knplabs/knp-snappy": "^0.4.3",
         "intervention/image": "^2.4",
-        "twilio/sdk": "^5.27"
+        "twilio/sdk": "^5.27",    
+        "php": "^5.6.0"
     },
     "config": {
         "vendor-dir": "src/vendor"
