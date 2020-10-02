@@ -15,8 +15,7 @@
         "phpmailer/phpmailer": "^5.2",
         "knplabs/knp-snappy": "^0.4.3",
         "intervention/image": "^2.4",
-        "twilio/sdk": "^5.27",
-        "heroku/heroku-buildpack-php": "^181.0"
+        "twilio/sdk": "^5.27"
     },
     "config": {
         "vendor-dir": "src/vendor"
@@ -26,5 +25,8 @@
             "name": "prokawsar",
             "email": "prokawsar@gmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "^181.0"
+    }
 }
