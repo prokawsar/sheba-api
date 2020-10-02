@@ -2,10 +2,10 @@
 
 $dbconfig = array(
     'adapter'   => 'mysql',
-    'host'      => 'localhost',
-    'username'  => 'root',
-    'password'  => '',
-    'dbname'    => 'sheba_homoeo',
+    'host'      => getenv('DATABASE_URL'),
+    'username'  => getenv('DB_USERNAME'),
+    'password'  => getenv('DB_PASSWORD'),
+    'dbname'    => getenv('DB_NAME'),
 );
 
 if (K_ENV == K_ENV_PRODUCTION) {
