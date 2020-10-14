@@ -1,7 +1,7 @@
 AddDefaultCharset UTF-8
 
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Origin "https://prokawsar.github.io"
 </IfModule>
 
 <IfModule mod_rewrite.c>
