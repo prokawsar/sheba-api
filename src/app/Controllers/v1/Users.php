@@ -7,23 +7,27 @@ class Users extends \Controllers\Base
 {
     protected $accessList = [
       'get' => [
-        Identity::CONTEXT_SUPER_ADMIN ,
-        Identity::CONTEXT_SUPER_USER,
+        Identity::CONTEXT_SUPER_ADMIN,
+        Identity::CONTEXT_SUPER_USER
       ],
       'getOne' => [
         Identity::CONTEXT_SUPER_ADMIN,
+        Identity::CONTEXT_SUPER_USER
       ],
       'post' => [
         Identity::CONTEXT_SUPER_ADMIN,
+        Identity::CONTEXT_SUPER_USER,
       ],
       'put' => [
         Identity::CONTEXT_SUPER_ADMIN,
+        Identity::CONTEXT_SUPER_USER,
       ],
       'delete' => [
         Identity::CONTEXT_SUPER_ADMIN,
       ],
       'uploadAvatar' => [
-        Identity::CONTEXT_SUPER_ADMIN
+        Identity::CONTEXT_SUPER_ADMIN,
+        Identity::CONTEXT_SUPER_USER,
       ]
     ];
 
