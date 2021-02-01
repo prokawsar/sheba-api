@@ -21,6 +21,11 @@ class Case_histories extends \Models\Base\Case_histories
     $metadata = $model->app->get('METADATAPROVIDER');
 
     $query = '`' . $model->table . '`.`deleted` <> 1 AND `patient` IS NOT null';
+
+    if(is_array($filters) && $filters[0]['field'] == 'deleted'){
+      $query = '`' . $model->table . '`.`deleted` = 1 AND `patient` IS NOT null';  
+    }
+    
     $bindings = [];
     $results = [];
     $total = 0;
@@ -31,9 +36,13 @@ class Case_histories extends \Models\Base\Case_histories
     $total = $model->count($qobj);
     $results = $model->find($qobj, ['offset' => $offset, 'limit' => $limit, 'order' => '`' . $model->table . '`.`id` ASC']);
 
-       //assign that total to METADATAPROVIDER
+    //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
-
+    $metadata->setCustomField('filters', [
+      'deleted' => [
+        ['name' => 'Deleted History', 'id' => 1 ]
+      ]
+    ]);
 
     return empty($results) ? [] : $results->castAll($model->castDepth);
   }

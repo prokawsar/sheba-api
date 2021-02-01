@@ -30,7 +30,7 @@ class Case_histories extends \Controllers\Base
       ],
     ];
 
-    protected $allowedSearchFields = ['name'];
+    protected $allowedSearchFields = ['name', 'deleted'];
 
     protected $modelsMap = [
       'default' => 'Models\Case_histories',
