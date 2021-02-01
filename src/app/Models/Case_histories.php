@@ -139,6 +139,15 @@ class Case_histories extends \Models\Base\Case_histories
     return $result;
   }
   
+  public static function delete($id, $opts = [])
+  {
+     //this ensures you can delete entities that you have permission to see
+    $existing = self::getOne($id, true, $opts);
+    $casted = $existing->cast(null, 0);
+    $existing->erase();
+    return $casted;
+  }
+  
   public static function field()
   {
     return [
