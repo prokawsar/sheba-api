@@ -26,7 +26,7 @@ class Patients extends \Controllers\Base
       ],
     ];
 
-    protected $allowedSearchFields = ['id', 'name', 'phone', 'gender', 'age', 'address'];
+    protected $allowedSearchFields = ['id', 'name', 'phone', 'gender', 'age', 'address', 'deleted'];
 
     protected $modelsMap = [
       'default' => 'Models\Patients',

@@ -29,9 +29,14 @@ class Patients extends \Models\Base\Patients
     $total = $model->count($qobj);
     $results = $model->find($qobj, ['offset' => $offset, 'limit' => $limit, 'order' => '`' . $model->table . '`.`id` ASC']);
 
-       //assign that total to METADATAPROVIDER
+    //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
-
+    $metadata->setCustomField('filters', [
+      'deleted' => [
+        ['name' => 'All Patient', 'id' => 0],
+        ['name' => 'Deleted User', 'id' => 1 ]
+      ]
+    ]);
 
     return empty($results) ? [] : $results->castAll($model->castDepth);
   }
