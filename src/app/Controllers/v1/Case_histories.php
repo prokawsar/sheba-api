@@ -30,7 +30,7 @@ class Case_histories extends \Controllers\Base
       ],
     ];
 
-    protected $allowedSearchFields = ['name', 'deleted'];
+    protected $allowedSearchFields = ['patient', 'deleted'];
 
     protected $modelsMap = [
       'default' => 'Models\Case_histories',
@@ -58,13 +58,13 @@ class Case_histories extends \Controllers\Base
       $model = $this->getModel();
       $this->respond($model::create($this->requestBody));
     }
-    
+
     public function get_with_treatments()
     {
       $model = $this->getModel();
       $this->respond($model::listWithTreatment());
     }
-    
+
     public function delete()
     {
       $model = $this->getModel();

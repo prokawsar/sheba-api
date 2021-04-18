@@ -8,7 +8,7 @@ class Patients extends \Models\Base\Patients
 {
 
   public $castDepth = [
-    'case_history' => [
+    'case_histories' => [
       '*' => 0
     ]
   ];
