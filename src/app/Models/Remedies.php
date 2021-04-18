@@ -8,8 +8,8 @@ class Remedies extends \Models\Base\Remedies
 {
 
   public $castDepth = null;
+  public static $ignoreCheckForDuplicate = ['id', 'name', 'created', 'modified', 'book_references'];
 
-  
   public static function listAll($offset, $limit, $filters = null, $opts = [])
   {
     $model = new self;
@@ -28,7 +28,7 @@ class Remedies extends \Models\Base\Remedies
 
     //assign that total to METADATAPROVIDER
     $metadata->setTotal($total);
-    
+
     return self::returnWithPercentage($model, $results);
     // return empty($results) ? [] : $results->castAll($model->castDepth);
   }
@@ -64,10 +64,10 @@ class Remedies extends \Models\Base\Remedies
   public static function put($id, $payload)
   {
     $model = new self;
-
     $valid = true;
-
     $existing = self::getOne($id, true);
+
+    self::removeDuplicateValues($payload, $existing);
 
     $fields = [
       'name', 'built', 'constitution', 'diathesis', 'miasm', 'temperament',
@@ -148,7 +148,7 @@ class Remedies extends \Models\Base\Remedies
             $mark++;
           }
         }
-        
+
         $percentage = ($mark / count($remedy)) * 100;
         $remedies[$index]['total_data_size'] = $percentage;
         $index++;
@@ -158,7 +158,7 @@ class Remedies extends \Models\Base\Remedies
       return [];
     }
   }
-  
+
   public static function checkDuplicateName($name)
   {
       $model = new self;
@@ -169,6 +169,18 @@ class Remedies extends \Models\Base\Remedies
       } else {
         return true;
       }
-    
+
+  }
+
+  public static function removeDuplicateValues(&$payload, $existing)
+  {
+    foreach($payload as $key => $value){
+      if($value && !in_array($key, self::$ignoreCheckForDuplicate)){
+        $value = str_replace(',', ', ', $value );
+        $merged_array = array_unique( array_map('trim', explode(', ', $value))  + explode(', ', $existing[$key]) ) ;
+        $payload[$key] = implode(', ', $merged_array);
+      }
+    }
+
   }
 }
