@@ -121,7 +121,9 @@ class Treatments extends \Models\Base\Treatments
 
     if($payload['data'] && is_array($payload['data'])){
 
-      self::deleteAllTodaysRecord($case_history['id']);
+      if(isset($payload['edit_remedies']) && $payload['edit_remedies']){
+        self::deleteAllTodaysRecord($case_history['id']);
+      }
 
       foreach($payload['data'] as $treatment){
         $treatment["case_history"] = $case_history['id'];
