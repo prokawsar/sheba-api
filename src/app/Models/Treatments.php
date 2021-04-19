@@ -45,13 +45,13 @@ class Treatments extends \Models\Base\Treatments
     $fields = ['case_history', 'patient', 'remedy', 'notes',
       'taking_rule', 'power'
     ];
-    
+
     //normal props
     $model->copyfrom($payload, $fields);
 
     //normal sanity checks
     $mandatoryFields = [];
-    
+
     $valid = self::checkMandatoryFields($model, $mandatoryFields);
     $valid = true;
 
@@ -110,25 +110,36 @@ class Treatments extends \Models\Base\Treatments
 
   public static function create_with_case($payload)
   {
-    
+
     if($payload['case']){
       $case_history = Case_histories::create($payload['case']);
     }else if($payload['prescribe']){
       $case_history['id'] = $payload['prescribe']['id'];
       $case_history['patient']['id'] = $payload['prescribe']['patient'];
-        
+
     }
-    
+
     if($payload['data'] && is_array($payload['data'])){
+
+      self::deleteAllTodaysRecord($case_history['id']);
+
       foreach($payload['data'] as $treatment){
         $treatment["case_history"] = $case_history['id'];
         $treatment["patient"] = $case_history['patient']['id'];
-        self::create($treatment);        
-      }      
+        self::create($treatment);
+      }
     }
-    
+
     return ['message' => 'Created Successfully'];
-    
+
+  }
+
+  public static function deleteAllTodaysRecord($case_id)
+  {
+    \Base::instance()->get('DB')->exec(
+      'DELETE FROM `treatments` WHERE `case_history` = ' . $case_id . ' AND DATE(`created`) = CURDATE()'
+    );
+
   }
 
 }
